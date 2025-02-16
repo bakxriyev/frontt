@@ -19,7 +19,7 @@ import {
     @Column({ type: DataType.STRING, allowNull: false })
     last_name: string;
   
-    @Column({ type: DataType.STRING, allowNull: false, unique: true })
+    @Column({ type: DataType.STRING, allowNull: false })
     email: string;
   
     @Column({ type: DataType.BIGINT, allowNull: true })

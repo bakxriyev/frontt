@@ -36,11 +36,6 @@ export class AuthService {
   async register(registerDto: RegisterDto, maqola: Express.Multer.File) {
     const { email, first_name, last_name, password, phone_number } = registerDto;
 
-    const existingUser = await this.userModel.findOne({ where: { email } });
-    if (existingUser) {
-        throw new HttpException("Email allaqachon ro'yxatdan o'tgan", HttpStatus.BAD_REQUEST);
-    }
-
     const hashedPassword = await bcrypt.hash(password, 10);
 
     const user = await this.userModel.create({
